@@ -216,7 +216,7 @@ if __name__ == "__main__":
             'header': args.header if args.header else config.get("mail", "header", fallback=None),
             'footer': args.footer if args.footer else config.get("mail", "footer", fallback=None),
             'mailfrom': args.mailfrom if args.mailfrom else config.get("smtp", "from", fallback="localhost"),
-            'mailto': args.mailto,
+            'mailto': args.mailto if args.mailto else config.get("smtp", "mailto", fallback=None),
             'server': config.get("smtp", "server", fallback="localhost"),
             'user': config.get("smtp", "username", fallback=None),
             'password': config.get("smtp", "password", fallback=None),
