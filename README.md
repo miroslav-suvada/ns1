@@ -1,7 +1,11 @@
 # ns1
 Helper scripts for NS1
 
-# Usage
+# nsone-reports.py
+## Description
+Script for viewing activity report in stdout or sending it via email.
+
+## Usage
 ```
 nsone-reports.py [-h] [--unit {days,seconds,microseconds,milliseconds,minutes,hours,weeks}] [--amount AMOUNT]
                  [--limit LIMIT] [--config CONFIG] [--export] [--format {json,xml,csv,pdf,xlsx,html}]
@@ -25,5 +29,5 @@ options:
   --mailto MAILTO       recipient address separated by comma (default: None)
   ```
   
-  # Configuration
+  ## Configuration
   Check the [example-config.ini](../master/example-config.ini) for available configuration options.
