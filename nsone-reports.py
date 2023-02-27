@@ -207,7 +207,7 @@ if __name__ == "__main__":
     logging.debug(f"report = {report}")
     parsed_reports = parse_reports(report) if not args.export else report
 
-    # TODO save export to file
+    # TODO save exports to file
     if not args.mailto or args.silent:
         print(parsed_reports if not args.export else parsed_reports.decode('utf-8'))
 
