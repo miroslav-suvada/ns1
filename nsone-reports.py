@@ -215,10 +215,10 @@ if __name__ == "__main__":
         )
     except FileNotFoundError as e:
         logging.error(f"Unable to open {log_path}")
-        sys_exit(e)
+        sys_exit(str(e))
     except PermissionError as e:
         logging.error(f"Permission denied for {log_path}")
-        sys_exit(e)
+        sys_exit(str(e))
 
     report_params = {
         "api_key": config.get("nsone", "NSONE_API_KEY"),
