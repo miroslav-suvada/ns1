@@ -154,11 +154,20 @@ def parse_reports(reports):
 
 
 def send_mail(
-    mailfrom, mailto, server, user, password, body, formatting=None, port=465
+    mailfrom,
+    mailto,
+    server,
+    user,
+    password,
+    body,
+    header="NS1 Activity Report",
+    footer="",
+    formatting=None,
+    port=465,
 ):
     toaddrs = mailto.split(",")
     message = MIMEMultipart("alternative")
-    message["Subject"] = "NS1 Activity Report"
+    message["Subject"] = header
     message["From"] = mailfrom
     message["To"] = mailto
     # TODO attachment pdf xlsx
@@ -176,7 +185,7 @@ def send_mail(
         )
         template = env.get_template("nsone-report.html.j2")
         html_part = MIMEText(
-            template.render(body=body, title="NS1 Activity Report"), "html", "utf-8"
+            template.render(body=body, title=header, footer=footer), "html", "utf-8"
         )
         message.attach(plain_part)
         message.attach(html_part)
