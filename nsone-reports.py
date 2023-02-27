@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
+import argparse
+import configparser
+import logging
+import smtplib
 from datetime import datetime, timedelta
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from itertools import chain
 from pathlib import Path
 from sys import exit as sys_exit
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+
+import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from requests import Session as reqSession
-
-import argparse
-import configparser
-import smtplib
-import yaml
-import logging
 
 
 def parse_args():
